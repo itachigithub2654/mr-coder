@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, Smol 🌙</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #dbeafe, #e6e9f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Floating moons & thumbs */
+    .float {
+      position: absolute;
+      opacity: 0.35;
+      animation: floatUp 10s linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(110vh);
+      }
+      to {
+        transform: translateY(-10vh);
+      }
+    }
+
+    button {
+      padding: 16px 34px;
+      font-size: 20px;
+      border-radius: 28px;
+      border: none;
+      background: #5b8def;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(91, 141, 239, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 14px 32px rgba(91, 141, 239, 0.5);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #f1f5f9;
+      padding: 32px;
+      max-width: 440px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+      animation: pop 0.25s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #1e3a8a;
+    }
+
+    p {
+      color: #334155;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .close {
+      margin-top: 22px;
+      padding: 10px 24px;
+      font-size: 14px;
+      border-radius: 20px;
+      border: none;
+      background: #64748b;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="openModal">Click Me, Smol 👍📦</button>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>Hello, smol🧱 🌙</h2>
+      <p>
+        This coder is sorry for making you feel sad constantly.<br><br>
+        I hope someday I regain your trust 👍  
+        and do not be a toxic person in your list again 🌙
+      </p>
+      <button class="close" id="closeModal"> No, thanks. 👍</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const openBtn = document.getElementById("openModal");
+    const closeBtn = document.getElementById("closeModal");
+
+    openBtn.onclick = () => modal.style.display = "flex";
+    closeBtn.onclick = () => modal.style.display = "none";
+
+    // floating moons & thumbs
+    const icons = ["🌙", "👍","🧱"];
+
+    for (let i = 0; i < 100; i++) {
+      const el = document.createElement("div");
+      el.className = "float";
+      el.textContent = icons[Math.floor(Math.random() * icons.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = 18 + Math.random() * 20 + "px";
+      el.style.animationDuration = 6 + Math.random() * 6 + "s";
+      document.body.appendChild(el);
+    }
+  </script>
+
+</body>
+</html>
