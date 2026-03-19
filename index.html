@@ -1,169 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hello, Smol 🌙</title>
-
+  <meta charset="UTF-8">
+  <title>Link Expired</title>
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
     body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #dbeafe, #e6e9f0);
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      height: 100vh;
+      margin: 0;
     }
-
-    /* Floating icons */
-    .float {
-      position: absolute;
-      opacity: 0.35;
-      animation: floatUp 10s linear infinite;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes floatUp {
-      from { transform: translateY(110vh); }
-      to { transform: translateY(-10vh); }
-    }
-
-    button {
-      padding: 16px 34px;
-      font-size: 20px;
-      border-radius: 28px;
-      border: none;
-      background: #5b8def;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(91, 141, 239, 0.35);
-      transition: all 0.2s ease;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    /* Modal base */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.45);
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .modal-content {
-      background: #f1f5f9;
-      padding: 32px;
-      max-width: 440px;
-      border-radius: 18px;
+    .container {
       text-align: center;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
-      animation: pop 0.25s ease-out;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
     }
-
-    @keyframes pop {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    h1 {
+      color: #dc3545;
     }
-
-    h2 {
-      margin-top: 0;
-      color: #1e3a8a;
-    }
-
     p {
-      color: #334155;
-      line-height: 1.6;
-      font-size: 16px;
+      color: #555;
+      margin: 15px 0;
     }
-
-    .close {
-      margin-top: 22px;
-      padding: 10px 24px;
-      font-size: 14px;
-      border-radius: 20px;
-      border: none;
-      background: #64748b;
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
       color: white;
-      cursor: pointer;
+      text-decoration: none;
+      border-radius: 5px;
     }
-
-    /* Image popup */
-    .image-modal img {
-      max-width: 300px;
-      border-radius: 14px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    a:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
-
 <body>
-
-  <button id="openModal">Click Me, Smol 👍📦</button>
-
-  <!-- First modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h2>Hello, smol 🧱🌙</h2>
-      <p>
-        This coder is regretful for making you feel sad constantly.<br><br>
-        I hope someday I regain your trust 👍  
-        and not be a toxic person in your list again 🌙
-      </p>
-      <button class="close" id="noThanksBtn">No, thanks 👍</button>
-    </div>
+  <div class="container">
+    <h1>Link Expired</h1>
+    <p>This link is no longer valid or has expired.</p>
+    <p>Please request a new link to continue.</p>
+    <a href="/">Go to Homepage</a>
   </div>
-
-  <!-- Image modal -->
-  <div class="modal image-modal" id="imageModal">
-    <div class="modal-content">
-      <img src="reaction.jpeg" alt="reaction image">
-      <br><br>
-      <p>Pleej</p>
-      <button class="close" id="closeImage">Okay 👍</button>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById("modal");
-    const imageModal = document.getElementById("imageModal");
-
-    document.getElementById("openModal").onclick = () => {
-      modal.style.display = "flex";
-    };
-
-    document.getElementById("noThanksBtn").onclick = () => {
-      modal.style.display = "none";
-      imageModal.style.display = "flex";
-    };
-
-    document.getElementById("closeImage").onclick = () => {
-      imageModal.style.display = "none";
-    };
-
-    // floating icons
-    const icons = ["🌙", "👍", "🧱"];
-    for (let i = 0; i < 200; i++) {
-      const el = document.createElement("div");
-      el.className = "float";
-      el.textContent = icons[Math.floor(Math.random() * icons.length)];
-      el.style.left = Math.random() * 100 + "vw";
-      el.style.fontSize = 18 + Math.random() * 20 + "px";
-      el.style.animationDuration = 6 + Math.random() * 6 + "s";
-      document.body.appendChild(el);
-    }
-  </script>
-
 </body>
 </html>
-
